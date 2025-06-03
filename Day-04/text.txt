@@ -1,0 +1,71 @@
+//1
+
+%function
+function sum = addNumbers(x,y)
+sum = x+y;
+end
+%this function input and output
+disp("summation:"+addNumbers(2,3))
+
+//2
+
+function sum = functions(x,y)
+sum = x+y;
+end
+
+//3
+
+function [add,sub,mul]= operations(a,b)
+add = a+b;
+sub = a-b;
+mul = a*b;
+end
+
+//4
+
+function greet(name)
+disp(['Hello ',name]);
+end
+
+//5
+
+function piValue = getPi()
+piValue = 3.1416;
+end
+
+//6
+
+function myFunction()
+disp('hello, this function has no inputs');
+end
+
+//7
+
+n = input('Enter a number: '); % Taking user input
+factorial_result = 1; % Initializing factorial variable
+
+for i = 1:n
+    factorial_result = factorial_result * i;
+end
+
+fprintf('The factorial of %d is %d\n', n, factorial_result);
+
+//8
+
+n = input('Enter a number: '); % Taking user input
+factorial_result = 1; % Initializing factorial variable
+
+for i = 1:n
+    factorial_result = factorial_result * i;
+end
+
+fprintf('The factorial of %d is %d\n', n, factorial_result);
+
+//9
+
+function f = Fact_n(n)
+if  n==0||n==1
+    f=1;
+else
+    f= n*Fact_n(n-1);
+end
