@@ -1,0 +1,147 @@
+1)create array with 1000 numbers
+2)use tic/toc to mesure time for:
+linear search
+binary search(after sorting)
+3)compare results
+
+
+//1)i way
+clc; clear;
+
+% Generate an array with 1000 random numbers
+array = randi([1, 10000], 1, 1000);
+target = array(randi(1000)); % Choose a random target from the array
+
+% Measure time for linear search
+tic;
+index_linear = find(array == target, 1);
+time_linear = toc;
+
+% Sort the array for binary search
+sorted_array = sort(array);
+
+% Measure time for binary search
+tic;
+index_binary = binarySearch(sorted_array, target);
+time_binary = toc;
+
+% Display results
+fprintf('Linear Search Time: %.6f seconds\n', time_linear);
+fprintf('Binary Search Time: %.6f seconds\n', time_binary);
+
+if index_binary ~= -1
+    fprintf('Target found at index %d using binary search.\n', index_binary);
+else
+    fprintf('Target not found in the sorted array using binary search.\n');
+end
+
+% Function for binary search
+function index = binarySearch(arr, target)
+    left = 1;
+    right = length(arr);
+    index = -1;
+    
+    while left <= right
+        mid = floor((left + right) / 2);
+        
+        if arr(mid) == target
+            index = mid;
+            return;
+        elseif arr(mid) < target
+            left = mid + 1;
+        else
+            right = mid - 1;
+        end
+    end
+end
+
+
+//ii way
+
+array = 1:1000;
+target = input('Enter the target number to search: ');
+
+tic;
+found = false;
+for i = 1:length(array)
+    if array(i) == target
+        found = true;
+        break;
+    end
+end
+
+
+linearSearchTime = toc;
+sortedArr = sort(array);
+
+tic;
+found  = binarySearch(sortedArr, target);
+binarySearchTime = toc;
+
+fprintf('Linear Search Time: %6f seconds\n', linearSearchTime);
+fprintf('Binary search Time: %6f seconds\n', binarySearchTime);
+
+function result = binarySearch(array, target)
+left = 1;
+right = length(array);
+result = false;
+
+
+while left <= right
+        mid = floor((left + right) / 2);
+        if array(mid) == target
+            result = true;
+            return;
+        elseif array(mid) < target
+            left = mid + 1;
+        else
+            right = mid - 1;
+        end
+    end
+end
+
+
+
+
+
+
+//sorting
+
+//selection sort in matlab and withoutfunction
+
+arr= 64,25,12,22,11
+
+
+
+
+
+% Define the array
+arr = [64, 25, 12, 22, 11];
+disp('Original Array:');
+disp(arr);
+
+n = length(arr);
+
+% Selection Sort Algorithm
+for i = 1:n-1
+    minIndex = i;
+    for j = i+1:n
+        if arr(j) < arr(minIndex)
+            minIndex = j;
+        end
+    end
+    
+    % Swap the found minimum element with the first element
+    if minIndex ~= i
+        temp = arr(i);
+        arr(i) = arr(minIndex);
+        arr(minIndex) = temp;
+    end
+end
+
+disp('Sorted Array:');
+disp(arr);
+
+
+
+ 
