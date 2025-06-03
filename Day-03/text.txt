@@ -1,0 +1,42 @@
+(1)i)Bouble sort
+arr = [64,34,25,12,22,11,90];
+
+n = length(arr);
+
+for i = 1:n-1
+    for j = 1:n-i
+        if arr(j)>arr(j+1)
+            temp=arr(j);
+            arr(j)=arr(j+1);
+            arr(j+1)=temp;
+
+        end
+    end
+end
+disp('Sorted Array:');
+disp(arr);
+
+
+(1)ii)
+% Define an array with unsorted numbers
+arr = [64, 34, 25, 12, 22, 11, 90];
+
+% Get the number of elements in the array
+n = length(arr);
+
+% Outer loop for sorting passes (n-1 iterations)
+for i = 1:n-1
+    % Inner loop for comparing adjacent elements
+    for j = 1:n-i
+        % If the current element is greater than the next one, swap them
+        if arr(j) > arr(j+1)
+            temp = arr(j);      % Store the current element in a temporary variable
+            arr(j) = arr(j+1);  % Move the next element to the current position
+            arr(j+1) = temp;    % Place the stored value in the next position
+        end
+    end
+end
+
+% Display the sorted array
+disp('Sorted array:');
+disp(arr);
